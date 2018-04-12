@@ -1,7 +1,8 @@
 node { 
-  stage "Clone Repository"
+  stage("Clone Repository"){
   checkout scm
-  stage "Parameter Value"
+  }
+  stage("Parameter Value")
   {
     sh "${env.BUILD_NUMBER} > file.txt"
     script{
@@ -9,7 +10,7 @@ node {
     }
     echo ${myvar}
   }
-  stage "Display Parameter"
+  stage("Display Parameter")
   {
      echo ${myvar}
   }
