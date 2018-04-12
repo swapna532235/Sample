@@ -1,6 +1,8 @@
 node { 
   stage "Clone Repository"
   checkout scm
-  stage "Create Directory"
-  sh "mkdir Sample"
+  stage "Parameter Value"
+  sh "SampleValue=${env.BUILD_NUMBER}"
+  stage "Display Parameter"
+  sh "echo $SampleValue"
 }
