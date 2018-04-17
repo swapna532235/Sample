@@ -1,7 +1,7 @@
 node { 
   environment{
-   FirstValue=2
-   SecondValue=3
+   FirstValue = 2
+   SecondValue = 3
   }
   stage("Clone Repository"){
   checkout scm
