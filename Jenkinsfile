@@ -1,4 +1,8 @@
 node { 
+  environment{
+   FirstValue=2
+   SecondValue=3
+  }
   stage("Clone Repository"){
   checkout scm
   }
@@ -8,9 +12,12 @@ node {
           // trim removes leading and trailing whitespace from the string
           myVar = readFile('myfile.txt').trim()
         }
+    echo "${env.FirstValue}"
+    echo "${env.SecondValue}"
+    sh 'Sum=env.FirstValue+env.SecondValue | echo "${Sum}"'
         echo "${myVar}" // prints 'hotness'
   }
-    stage('two') {
+   stage('two') {
       steps {
         echo "${myVar}" // prints 'hotness'
       }
