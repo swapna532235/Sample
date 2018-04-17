@@ -2,16 +2,19 @@ node {
   stage("Clone Repository"){
   checkout scm
   }
-  stage("Parameter Value")
-  {
-    sh "${env.BUILD_NUMBER} > file.txt"
-    script{
-      myVar = readFile('file.txt').trim()      
+  stage("one"){
+  var="Sample"
+  sh 'echo $var > myfile.txt'
+        script {
+          // trim removes leading and trailing whitespace from the string
+          myVar = readFile('myfile.txt').trim()
+        }
+        echo "${myVar}" // prints 'hotness'
+  }
+    stage('two') {
+      steps {
+        echo "${myVar}" // prints 'hotness'
+      }
     }
-    echo ${myvar}
-  }
-  stage("Display Parameter")
-  {
-     echo ${myvar}
-  }
+
 }
