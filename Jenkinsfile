@@ -1,8 +1,9 @@
-node { 
+pipeline{
   environment{
    FirstValue = 2
    SecondValue = 3
-  }
+  }  
+node { 
   stage("Clone Repository"){
   checkout scm
   }
@@ -20,4 +21,5 @@ node {
         echo "${myVar}" // prints 'hotness
     }
 
+}
 }
