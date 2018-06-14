@@ -1,5 +1,5 @@
 node { 
   stage("Clone Repository"){
-   sh "git checkout -r Test"
+   sh "git checkout Test"
   }
 }
